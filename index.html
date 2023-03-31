@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <header> </header>
+
+    <main class="wrapper d-flex" id="app">
+
+      <div class="left-side"> 
+        <div class="app-header d-flex justify-content-between align-items-center p-1">
+          <div class="icon d-flex align-items-center">
+            <img src="./img/avatar_io.jpg" alt="io" class="rounded-circle">
+            <p> Sofia </p>
+          </div>
+          <div class="d-flex gap-2 gray-icon">
+            <img src="./img/status-icon.svg" alt="status">
+            <img src="./img/message-icon.svg" alt="status">
+            <img src="./img/menu-icon.svg" alt="status">
+          </div>
+        </div>
+        <div class="desktop-alert d-flex align-items-center p-3">
+          <img src="./img/bell-ban.svg" alt="">
+          <div class="p-3">
+            <h5>
+              Ricevi notifiche di nuovi messaggi
+            </h5>
+            <a href="#">
+              <p>
+                Attiva le notifiche desktop
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="search-section d-flex align-items-center justify-content-center">
+          <div class="search-bar d-flex align-items-center">
+            <div class="d-flex align-items-center px-3">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input type="search" name="searchChat" id="searchChat" placeholder="Cerca o inizia una nuova chat">
+          </div>
+        </div>
+        <div class="messages">
+          <!-- this is where the preview messages will be shown -->
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="app-header">
+        </div>
+        <div class="openMessage">
+          
+        </div>
+      </div>
+      
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/myscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
