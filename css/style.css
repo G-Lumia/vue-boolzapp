@@ -1,3 +1,7 @@
+*{
+    margin:0;
+}
+
 header{
     height:120px;
     background-color: #009688;
@@ -83,16 +87,18 @@ body{
 
 .openMessage{
     overflow-y: scroll;
-    height:calc(100% - 70px)
+    height:calc(100% - 70px);
+    display:flex;
+    flex-direction: column;
+}
+
+.openMessage p{
+    margin:0;
 }
 /* icon classes */
 
 .app-header .icon img{
     width:50px;
-}
-
-.icon img{
-    width:70px;
 }
 
 .icon p{
@@ -104,5 +110,45 @@ body{
     width: 30px;
 }
 
-/* font classes */
+/* preview messages */
 
+.preview{
+    width:100%;
+    text-align: left;
+}
+
+.preview p{
+    font-size: 0.8rem;
+    color:black;
+    filter: opacity(0.5);
+}
+.icon img{
+    width:60px;
+}
+
+/* messages classes */
+.message
+{
+    width:45%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.sent{
+    background-color: white;
+    align-self: start;
+}
+
+.received{
+    background-color: lightgreen;
+    align-self: end;
+}
+
+.time
+{
+    font-size: 0.8rem;
+    color:black;
+    filter: opacity(0.5);
+    align-self: end;
+}

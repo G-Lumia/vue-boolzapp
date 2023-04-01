@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="messages">
-          <button v-for="contact in contacts" class="preview btn btn-light d-flex justify-content-between">
+          <button v-for="(contact) in contacts" class="preview btn btn-light d-flex justify-content-between" @click="changeChat(contact.id)">
             <div class="icon d-flex">
               <img class="rounded-circle" :src=contact.avatar alt="avatar + {{contact.id}}">
               <div class="px-3">
@@ -63,16 +63,21 @@
               12:00
             </p>
           </button>
-                
         </div>
       </div>
 
       <div class="right-side">
         <div class="app-header">
         </div>
-        <div class="openMessage">
-          
-        </div>
+        <div class="openMessage p-5">
+          <div v-for="message in contacts[activeIndex].messages" class="message p-3" :class="message.status == `sent` ? 'sent': 'received' ">
+            <p>
+              {{message.message}}
+            </p>
+            <p class="time">
+              {{message.date}}
+            </p>
+          </div>
       </div>
 
     </main>
