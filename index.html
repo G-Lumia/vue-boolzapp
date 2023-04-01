@@ -49,7 +49,7 @@
         <div class="messages">
           <button v-for="(contact) in contacts" class="preview btn btn-light d-flex justify-content-between" @click="changeChat(contact.id)">
             <div class="icon d-flex">
-              <img class="rounded-circle" :src=contact.avatar alt="avatar + {{contact.id}}">
+              <img class="rounded-circle" :src=contact.avatar>
               <div class="px-3">
                 <h5>
                   {{contact.name}}
@@ -66,11 +66,25 @@
         </div>
       </div>
 
-      <div class="right-side">
-        <div class="app-header">
+      <div class="right-side d-flex flex-column">
+        <div class="app-header d-flex justify-content-between align-items-center p-1">
+          <div class="icon d-flex align-items-center">
+            <img :src = contacts[activeIndex].avatar  class="rounded-circle">
+            <div>
+              <p> {{contacts[activeIndex].name}} </p>
+              <p class="time">
+                Ultimo accesso alle 12:00
+              </p>
+            </div>
+          </div>
+          <div class="d-flex gap-2 gray-icon">
+            <img src="./img/lens.svg" alt="status">
+            <img src="./img/paperclip.svg" alt="status">
+            <img src="./img/menu-icon.svg" alt="status">
+          </div>
         </div>
         <div class="openMessage p-5">
-          <div v-for="message in contacts[activeIndex].messages" class="message p-3" :class="message.status == `sent` ? 'sent': 'received' ">
+          <div v-for="message in contacts[activeIndex].messages" class="message p-3 my-2 " :class="message.status == `sent` ? 'sent': 'received' ">
             <p>
               {{message.message}}
             </p>
@@ -78,8 +92,13 @@
               {{message.date}}
             </p>
           </div>
+        </div>
+        <div class="sendMessage d-flex justify-content-between align-items-center px-5">
+          <img src="./img/smile.svg">
+          <input class="chatBox rounded w-75 p-2" type="text" name="chat" id="chat" placeholder="Scrivi un messaggio" v-model="text" @keyup.enter="sendMessage(activeIndex)">
+          <img src="./img/mic.svg">
+        </div>
       </div>
-
     </main>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

@@ -103,7 +103,6 @@ body{
 
 .icon p{
     margin:0;
-    font-size: 1.2rem;
 }
 
 .gray-icon img{
@@ -151,4 +150,15 @@ body{
     color:black;
     filter: opacity(0.5);
     align-self: end;
+}
+
+/* chatbox */
+
+.sendMessage{
+    background-color: #f3eeea;
+    min-height:70px;
+}
+
+.chatBox{
+    height:40px;
 }

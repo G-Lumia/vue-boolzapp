@@ -17,7 +17,8 @@ createApp
 ({
     data(){
         return{
-            activeIndex : 1,
+            activeIndex : 0,
+            text : '',
             contacts: [
                 {
                     id:1,
@@ -193,7 +194,19 @@ createApp
     },
     methods: {
         changeChat(index){
-            this.activeIndex = index;
+            this.activeIndex = index - 1;
+        },
+        sendMessage(index){
+            var time = new Date();
+            const newMessage = {
+                date: time.getHours() + ":" + time.getMinutes(),
+                message: this.text,
+                status: 'received'
+            }
+            //viene verificato che il testo sia stato inserito e che sia minore di 100 caratteri
+            if ((this.text != ''))
+                this.contacts[index].messages.push(newMessage)
+            this.task = ''
         }
     },
     mounted(){
