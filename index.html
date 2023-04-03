@@ -55,12 +55,12 @@
                   {{contact.name}}
                 </h5>
                 <p>
-                  {{contact.messages[contact.messages.length - 1].message}}
+                  {{shortMessage(contact)}}
                 </p>
               </div>
             </div>
             <p>
-              12:00
+              {{contact.messages[contact.messages.length - 1].date}}
             </p>
           </button>
         </div>

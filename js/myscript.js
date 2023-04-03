@@ -221,6 +221,16 @@ createApp
                 contact.name.trim().toLowerCase().includes(this.search.trim().toLowerCase()));
             }
         },
+        shortMessage(contact){
+            if(contact.messages[contact.messages.length - 1].message.length < 15)
+            {
+                return contact.messages[contact.messages.length - 1].message;
+            }
+            else
+            {
+                return (contact.messages[contact.messages.length - 1].message.substring(0, 15) + "...");
+            }
+        }
     },
     mounted(){
 
