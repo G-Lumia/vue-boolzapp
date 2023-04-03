@@ -1,4 +1,5 @@
 
+// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 // Milestone 5 - opzionale
 // Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
 
@@ -212,14 +213,14 @@ createApp
             this.contacts[index].messages.push(newMessage);
         },
         filteredContacts(){
-            if(this.search === '')
+            if(this.search.trim() == '')
             {
                 return this.contacts;
             }
             else
             {
                 return this.contacts.filter((contact) =>
-                contact.name.toLowerCase().includes(this.search.toLowerCase()));
+                contact.name.trim().toLowerCase().includes(this.search.trim().toLowerCase()));
             }
         }
     },

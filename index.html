@@ -43,11 +43,11 @@
             <div class="d-flex align-items-center px-3">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <input type="search" name="searchChat" id="searchChat" placeholder="Cerca o inizia una nuova chat">
+            <input type="search" name="searchChat" class="form-control" id="searchChat" placeholder="Cerca o inizia una nuova chat" v-model="search">
           </div>
         </div>
         <div class="messages">
-          <button v-for="(contact) in contacts" class="preview btn btn-light d-flex justify-content-between" @click="changeChat(contact.id)">
+          <button v-for="contact in filteredContacts()" class="preview btn btn-light d-flex justify-content-between" @click="changeChat(contact.id)">
             <div class="icon d-flex">
               <img class="rounded-circle" :src=contact.avatar>
               <div class="px-3">
