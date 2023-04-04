@@ -9,6 +9,7 @@ createApp
             activeIndex : 0,
             text : '',
             search : '',
+            chatMenuVisible:false,
             contacts: [
                 {
                     id:1,
@@ -248,15 +249,15 @@ createApp
         },
         // funzione dedicata alla riduzione di messaggi troppo lunghi, necessaria nella sezione left-side
         shortMessage(contact){
-            if(contact.messages[contact.messages.length - 1].message.length < 50)
+            if(contact.messages[contact.messages.length - 1].message.length < 15)
             {
                 return contact.messages[contact.messages.length - 1].message;
             }
             else
             {
-                return (contact.messages[contact.messages.length - 1].message.substring(0, 50) + "...");
+                return (contact.messages[contact.messages.length - 1].message.substring(0, 15) + "...");
             }
-        }
+        },
     },
     mounted(){
 

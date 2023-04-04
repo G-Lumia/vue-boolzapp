@@ -90,6 +90,7 @@ body{
     height:calc(100% - 70px);
     display:flex;
     flex-direction: column;
+    position:relative;
 }
 
 .openMessage p{
@@ -98,7 +99,8 @@ body{
 /* icon classes */
 
 .app-header .icon img{
-    max-width:50px;
+    width:50px;
+    min-width: 50px;
 }
 
 .icon p{
@@ -122,7 +124,8 @@ body{
     filter: opacity(0.5);
 }
 .icon img{
-    max-width:60px;
+    width: 60px;
+    max-width: 60px;
 }
 
 /* messages classes */
@@ -162,4 +165,14 @@ body{
 
 .chatBox{
     height:40px;
+}
+
+/* message edit box */
+
+.messageMenu{
+    width: 60px;
+    height: 100px;
+    position:absolute;
+    top:0;
+    left:0;
 }

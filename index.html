@@ -87,7 +87,7 @@
             <div>
               <p> {{contacts[activeIndex].name}} </p>
               <p class="time">
-                Ultimo accesso alle 12:00
+                Ultimo accesso {{contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date}}
               </p>
             </div>
           </div>
@@ -99,7 +99,7 @@
         </div>
         <div class="openMessage p-5">
           <!-- vengono visualizzati tutti i messaggi inviati e ricevuti dal relativo utente -->
-          <div v-for="message in contacts[activeIndex].messages" class="message p-3 my-2 " :class="message.status == `sent` ? 'sent': 'received' ">
+          <div v-for="(message, index) in contacts[activeIndex].messages" :key="index" class="message p-3 my-2 " :class="message.status == `sent` ? 'sent': 'received' " @click ="showMessageMenu($event)">
             <p>
               {{message.message}}
             </p>
