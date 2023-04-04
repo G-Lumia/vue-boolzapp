@@ -10,21 +10,27 @@
   </head>
 
   <body>
-    <header> </header>
 
+    <!-- inizio header -->
+    <header> </header>
+    <!-- fine header -->
+    <!-- inizio main -->
     <main class="wrapper d-flex" id="app">
+      <!-- zona dedicata alla preview dei messaggi -->
       <div class="left-side"> 
+        <!-- header di left-side -->
         <div class="app-header d-flex justify-content-between align-items-center p-1">
           <div class="icon d-flex align-items-center">
             <img src="./img/avatar_io.jpg" alt="io" class="rounded-circle">
-            <p> Sofia </p>
+            <p> Giorgia </p>
           </div>
           <div class="d-flex gap-2 gray-icon">
             <img src="./img/status-icon.svg" alt="status">
-            <img src="./img/message-icon.svg" alt="status">
-            <img src="./img/menu-icon.svg" alt="status">
+            <img src="./img/message-icon.svg" alt="message">
+            <img src="./img/menu-icon.svg" alt="menu">
           </div>
         </div>
+        <!-- call to action -->
         <div class="desktop-alert d-flex align-items-center p-3">
           <img src="./img/bell-ban.svg" alt="">
           <div class="p-3">
@@ -38,15 +44,20 @@
             </a>
           </div>
         </div>
+        <!-- sezione dedicata alla ricerca dei contatti -->
         <div class="search-section d-flex align-items-center justify-content-center">
           <div class="search-bar d-flex align-items-center">
             <div class="d-flex align-items-center px-3">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
+            <!-- inserendo un valore la lista dei contatti verrà filtrata -->
             <input type="search" name="searchChat" class="form-control" id="searchChat" placeholder="Cerca o inizia una nuova chat" v-model="search">
           </div>
         </div>
+        <!-- sezione dedicata alla preview dei vari messaggi inviati dai contatti -->
         <div class="messages">
+          <!-- viene richiamata la funzione filteredContacts(), che filtrerà i contatti visualizzati utilizzando il valore inserito nel campo di ricerca
+          al click di una scheda di un contatto, verrà cambiata la chat visualizzata in right-side -->
           <button v-for="contact in filteredContacts()" class="preview btn btn-light d-flex justify-content-between" @click="changeChat(contact.id)">
             <div class="icon d-flex">
               <img class="rounded-circle" :src=contact.avatar>
@@ -54,6 +65,7 @@
                 <h5>
                   {{contact.name}}
                 </h5>
+                <!-- viene richiamata la funzione shortmessage: se il messsaggio supera una lunghezza predefinita verrà ridotto per una migliore visualizzazione  -->
                 <p>
                   {{shortMessage(contact)}}
                 </p>
@@ -65,9 +77,11 @@
           </button>
         </div>
       </div>
-
+      <!-- sezione dedicata alla invio e ricezione dei messaggi -->
       <div class="right-side d-flex flex-column">
+        <!-- header di right-side -->
         <div class="app-header d-flex justify-content-between align-items-center p-1">
+          <!-- in base all'indice attivo, verrà visualizzato il contatto con l'id relativo -->
           <div class="icon d-flex align-items-center">
             <img :src = contacts[activeIndex].avatar  class="rounded-circle">
             <div>
@@ -78,12 +92,13 @@
             </div>
           </div>
           <div class="d-flex gap-2 gray-icon">
-            <img src="./img/lens.svg" alt="status">
-            <img src="./img/paperclip.svg" alt="status">
-            <img src="./img/menu-icon.svg" alt="status">
+            <img src="./img/lens.svg" alt="lens">
+            <img src="./img/paperclip.svg" alt="paperclip">
+            <img src="./img/menu-icon.svg" alt="menu">
           </div>
         </div>
         <div class="openMessage p-5">
+          <!-- vengono visualizzati tutti i messaggi inviati e ricevuti dal relativo utente -->
           <div v-for="message in contacts[activeIndex].messages" class="message p-3 my-2 " :class="message.status == `sent` ? 'sent': 'received' ">
             <p>
               {{message.message}}
@@ -93,6 +108,7 @@
             </p>
           </div>
         </div>
+        <!-- sezione dedicata all'invio di un messaggio -->
         <div class="sendMessage d-flex justify-content-between align-items-center px-5">
           <img src="./img/smile.svg">
           <input class="chatBox rounded w-75 p-2" type="text" name="chat" id="chat" placeholder="Scrivi un messaggio" v-model="text" @keyup.enter="sendMessage(activeIndex)">
@@ -100,7 +116,7 @@
         </div>
       </div>
     </main>
-
+    <!-- fine main -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/myscript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

@@ -183,9 +183,11 @@ createApp
         }
     },
     methods: {
-        changeChat(index){
-            this.activeIndex = index - 1;
+        // al click di un contatto, viene cambiata la chat visualizzata
+        changeChat(id){
+            this.activeIndex = id - 1;
         },
+        // viene creato un nuovo oggetto message, che dopo i dovuti controlli sarà inserito nel relativo array corrispondente al contatto attivo
         sendMessage(index){
             var time = new Date();
             const newMessage = {
@@ -198,9 +200,10 @@ createApp
                 this.contacts[index].messages.push(newMessage);
 
             this.text = '';
-
+            //dopo un intervallo di tempo, sarà inviata una risposta
             setTimeout(() => this.sendResponse(index), 1000);
         },
+        //funzione dedicata all'invio di una risposta automatica, dopo che l'utente ha inviato un messaggio
         sendResponse(index){
             var time = new Date();
             const newMessage = {
@@ -210,6 +213,7 @@ createApp
             }
             this.contacts[index].messages.push(newMessage);
         },
+        //funzione dedicata al filtraggio della lista dei contatti, in base a ciò che verrà inserito nella barra di ricerca
         filteredContacts(){
             if(this.search.trim() == '')
             {
@@ -221,14 +225,15 @@ createApp
                 contact.name.trim().toLowerCase().includes(this.search.trim().toLowerCase()));
             }
         },
+        // funzione dedicata alla riduzione di messaggi troppo lunghi, necessaria nella sezione left-side
         shortMessage(contact){
-            if(contact.messages[contact.messages.length - 1].message.length < 15)
+            if(contact.messages[contact.messages.length - 1].message.length < 50)
             {
                 return contact.messages[contact.messages.length - 1].message;
             }
             else
             {
-                return (contact.messages[contact.messages.length - 1].message.substring(0, 15) + "...");
+                return (contact.messages[contact.messages.length - 1].message.substring(0, 50) + "...");
             }
         }
     },
