@@ -179,7 +179,28 @@ createApp
                         }
                     ],
                 }
-            ]
+            ],
+            chatMessages : [
+                'Ciao! Come stai?',
+                'Buongiorno, è la prima volta che parliamo?',
+                'Scusa se ti disturbo, ma avrei bisogno di un consiglio.',
+                'Sì, ho visto quello che hai pubblicato su Facebook, mi sembra molto interessante.',
+                'Mi piace la tua foto del profilo, dove l\'hai scattata?',
+                'Ciao, hai visto l\'ultimo episodio di quella serie tv?',
+                'Ti piace la musica di questo artista?',
+                'Quale è il tuo ristorante preferito in città?',
+                'Hai mai provato questo nuovo bar? Dicono che facciano dei cocktail fantastici.',
+                'Ciao, come stai passando la tua giornata?',
+                'Hai mai viaggiato in Asia? Qual è stato il tuo paese preferito?',
+                'Qual è il tuo libro preferito?',
+                'Cosa ne pensi di questo film? A me è piaciuto molto.',
+                'Ciao, hai qualche programma per il weekend?',
+                'Come ti sei avvicinato a questa passione?',
+                'Se potessi andare ovunque nel mondo, dove vorresti andare?',
+                'Cosa fai nel tempo libero?',
+                'Hai mai partecipato a un concerto? Qual è stato il tuo preferito?',
+                'Cosa hai fatto ieri sera?',
+                'Che ne pensi di questa nuova tecnologia?']
         }
     },
     methods: {
@@ -208,7 +229,7 @@ createApp
             var time = new Date();
             const newMessage = {
                 date: time.getHours() + ":" + time.getMinutes(),
-                message: 'OK!',
+                message: this.chatMessages[Math.floor(Math.random() * 20)],
                 status: 'sent'
             }
             this.contacts[index].messages.push(newMessage);
