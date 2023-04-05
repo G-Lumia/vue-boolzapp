@@ -181,7 +181,8 @@ createApp
                     ],
                 }
             ],
-            chatMessages : [
+            chatMessages : 
+            [
                 'Ciao! Come stai?',
                 'Buongiorno, è la prima volta che parliamo?',
                 'Scusa se ti disturbo, ma avrei bisogno di un consiglio.',
@@ -201,13 +202,20 @@ createApp
                 'Cosa fai nel tempo libero?',
                 'Hai mai partecipato a un concerto? Qual è stato il tuo preferito?',
                 'Cosa hai fatto ieri sera?',
-                'Che ne pensi di questa nuova tecnologia?']
+                'Che ne pensi di questa nuova tecnologia?'
+            ],
+            activeMessage: {
+                index : false,
+                show : false
+            }
         }
     },
     methods: {
         // al click di un contatto, viene cambiata la chat visualizzata
         changeChat(id){
             this.activeIndex = id - 1;
+            this.activeMessage.index = false;
+            this.activeMessage.show = false;
         },
         // viene creato un nuovo oggetto message, che dopo i dovuti controlli sarà inserito nel relativo array corrispondente al contatto attivo
         sendMessage(index){
@@ -258,6 +266,26 @@ createApp
                 return (contact.messages[contact.messages.length - 1].message.substring(0, 15) + "...");
             }
         },
+        showMessageMenu(index){
+            if(this.activeMessage.index !== false && this.activeMessage !== index && this.contacts[this.activeIndex].messages.length > 1)
+            {
+                this.activeMessage.show= false;
+                this.activeMessage.index = false;
+            }
+            this.activeMessage.show = (this.activeMessage.show) ? false : true;
+            this.activeMessage.index = index;
+        },
+        deleteMessage(index)
+        {
+            if(this.contacts[this.activeIndex].messages.length > 1)
+            {
+                this.contacts[this.activeIndex].messages.splice(index , 1);
+            }
+            else
+            {
+                this.contacts[this.activeIndex].messages[0].message = "--chat eliminata--"
+            }
+        }
     },
     mounted(){
 

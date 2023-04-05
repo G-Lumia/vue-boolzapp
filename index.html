@@ -99,13 +99,21 @@
         </div>
         <div class="openMessage p-5">
           <!-- vengono visualizzati tutti i messaggi inviati e ricevuti dal relativo utente -->
-          <div v-for="(message, index) in contacts[activeIndex].messages" :key="index" class="message p-3 my-2 " :class="message.status == `sent` ? 'sent': 'received' " @click ="showMessageMenu($event)">
+          <div v-for="(message, index) in contacts[activeIndex].messages" :key="index" class="message p-3 my-2 " :class="message.status == `sent` ? 'sent': 'received' " @click ="showMessageMenu(index)">
             <p>
               {{message.message}}
             </p>
             <p class="time">
               {{message.date}}
             </p>
+            <div class="message-option-panel" v-if="activeMessage.show && activeMessage.index === index">
+              <button class="message-info btn btn-light">
+                Info messaggio
+              </button>
+              <button class="message-delete btn btn-light" @click = "deleteMessage(index)">
+                Cancella messaggio
+              </button>
+            </div>
           </div>
         </div>
         <!-- sezione dedicata all'invio di un messaggio -->
