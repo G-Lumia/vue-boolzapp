@@ -136,6 +136,7 @@ body{
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
+    position:relative
 }
 
 .sent{
@@ -170,9 +171,10 @@ body{
 /* message edit box */
 
 .messageMenu{
-    width: 60px;
-    height: 100px;
+    width: fit-content;
+    height: fit-content;
     position:absolute;
     top:0;
-    left:0;
+    right:0;
+    background-color: #fafafa
 }

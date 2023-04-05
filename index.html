@@ -106,11 +106,11 @@
             <p class="time">
               {{message.date}}
             </p>
-            <div class="message-option-panel" v-if="activeMessage.show && activeMessage.index === index">
-              <button class="message-info btn btn-light">
-                Info messaggio
+            <div class="messageMenu d-flex flex-column gap-2 p-3" v-if="activeMessage.show && activeMessage.index === index">
+              <button class="message-info btn btn-light d-flex align-items-center justify-content-center" @click = "(index = false)">
+                Chiudi finestra
               </button>
-              <button class="message-delete btn btn-light" @click = "deleteMessage(index)">
+              <button class="message-delete btn btn-light d-flex align-items-center justify-content-center" @click = "deleteMessage(index)">
                 Cancella messaggio
               </button>
             </div>
