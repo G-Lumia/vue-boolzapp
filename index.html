@@ -100,7 +100,7 @@
             <img src="./img/menu-icon.svg" alt="menu">
           </div>
         </div>
-        <div class="openMessage p-5">
+        <div class="openMessage p-2">
           <!-- vengono visualizzati tutti i messaggi inviati e ricevuti dal relativo utente -->
           <div v-for="(message, index) in contacts[activeIndex].messages" :key="index" class="message p-3 my-2 " :class="message.status == `sent` ? 'sent': 'received' " @click ="showMessageMenu(index)">
             <p>
