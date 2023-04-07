@@ -216,6 +216,24 @@ createApp
             this.activeIndex = id - 1;
             this.activeMessage.index = false;
             this.activeMessage.show = false;
+            // se la dimensione dello schermo è md o inferiore, viene rimosso left-side 
+            // e visualizzato right-side ed il bottone per tornare indietro
+            if (window.matchMedia("(max-width: 992px)").matches)
+            {
+                document.getElementById("left-side").classList.add("d-none");
+                document.getElementById("right-side").classList.remove("d-none");
+                document.getElementById("goBack").classList.remove("d-none");
+            }
+        },
+        goBack(){
+            // se la dimensione dello schermo è md o inferiore, viene rimosso right-side 
+            // ed il bottone per tornare indietro. viene visualizzato left-side
+            if (window.matchMedia("(max-width: 992px)").matches)
+            {
+                document.getElementById("right-side").classList.add("d-none");
+                document.getElementById("left-side").classList.remove("d-none");
+                document.getElementById("goBack").classList.add("d-none");
+            }
         },
         // viene creato un nuovo oggetto message, che dopo i dovuti controlli sarà inserito nel relativo array corrispondente al contatto attivo
         sendMessage(index){
