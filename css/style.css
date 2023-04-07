@@ -125,13 +125,14 @@ body{
 }
 .icon img{
     width: 60px;
-    max-width: 60px;
+    max-height: 60px;
 }
 
 /* messages classes */
 .message
 {
-    width:45%;
+    min-width:45%;
+    max-width: 90%;
     height: fit-content;
     display: flex;
     flex-direction: column;
