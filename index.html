@@ -121,9 +121,14 @@
           <!-- sezione dedicata all'invio di un messaggio -->
         </div>
         <div class="sendMessage d-flex justify-content-between align-items-center px-5">
-          <img src="./img/smile.svg">
-          <input class="chatBox rounded w-75 p-2" type="text" name="chat" id="chat" placeholder="Scrivi un messaggio" v-model="text" @keyup.enter="sendMessage(activeIndex)">
-          <img src="./img/mic.svg">
+          <img class="mx-3" src="./img/smile.svg">
+          <div class="d-flex flex-grow-1">
+            <input class="chatBox rounded w-75 p-2 flex-grow-1" type="text" name="chat" id="chat" placeholder="Scrivi un messaggio" v-model="text" @keyup.enter="sendMessage(activeIndex)">
+            <button class="btn border-none d-lg-none" @click="sendMessage(activeIndex)">
+              <i class="fa-regular fa-paper-plane"></i>
+            </button>
+          </div>
+          <img class="mx-3" src="./img/mic.svg">
         </div>
       </div>
     </main>
